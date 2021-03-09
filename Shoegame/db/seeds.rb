@@ -1,4 +1,4 @@
-Shoe.destory_all
+
 
 
 
