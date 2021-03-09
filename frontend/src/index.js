@@ -14,9 +14,12 @@ function renderShoe(shoe){
     
     let shoeImg = document.createElement("img")
     shoeImg.src = shoe.image 
+    shoeImg.id = "shoe-image"
+    
     console.log(shoeImg)
 
     allShoes.append(specificShoe, shoeImg)
+
 
 
 }
