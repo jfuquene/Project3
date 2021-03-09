@@ -4,10 +4,10 @@ stansmiths = Shoe.create(shoes_size: 9, color:"white", price: 65, brand:"adidas"
 nmd_r1 = Shoe.create(shoes_size: 10.5, color:"white", price: 150, brand:"adidas", image:"https://assets.adidas.com/images/w_840,h_840,f_auto,q_auto:sensitive,fl_lossy/189b449050ef49b1aa68a8ba010163e6_9366/NMD_R1_Shoes_White_D96635_01_standard.jpg", name: "NMD_R1", sex:"male")
 samba = Shoe.create(shoes_size: 10.5, color:"white", price: 75, brand:"adidas", image:"https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy/9f1ef31bb9234043abb7abb100b20338_9366/Samba_Vegan_Shoes_White_FW2427_01_standard.jpg", name:"Sambas", sex:"unisex")
 
-pumaRS = Shoe.create(shoes_size: 10, color:"multiple", price: 110, brand:"puma", image:"https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_450,h_450/global/373308/01/sv01/fnd/PNA/fmt/png", name: "RS-x)", sex:"male")
-suede = Shoe.create(shoes_size: 10, color:"red", price: 110, brand:"puma", image:"https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/352634/75/sv01/fnd/PNA/fmt/png/Suede-Classic+-Sneakers", name:"Suede Classic"},sex:"male")
+pumaRS = Shoe.create(shoes_size: 10, color:"multiple", price: 110, brand:"puma", image:"https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_450,h_450/global/373308/01/sv01/fnd/PNA/fmt/png", name: "RS-x", sex:"male")
+suede = Shoe.create(shoes_size: 10, color:"red", price: 110, brand:"puma", image:"https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/352634/75/sv01/fnd/PNA/fmt/png/Suede-Classic+-Sneakers", name:"Suede Classic", sex:"male")
 cali = Shoe.create(shoes_size: 10, color:"multiple", price: 110, brand:"puma", image:"https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/380220/03/sv01/fnd/PNA/fmt/png/Cali-Star-Women's-Sneakers", name:"Cali Star", sex:"female")
-rs_curve = Shoe.create(shoes_size: 10, color:"multiple", price: 110, brand:"puma", image:"https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/381404/01/sv01/fnd/PNA/fmt/png/RS-Curve-Gold-Women's-Sneakers", name:"RS-Curve" sex:"female")
+rs_curve = Shoe.create(shoes_size: 10, color:"multiple", price: 110, brand:"puma", image:"https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/381404/01/sv01/fnd/PNA/fmt/png/RS-Curve-Gold-Women's-Sneakers", name:"RS-Curve", sex:"female")
 rs = Shoe.create(shoes_size: 10, color:"multiple", price: 110, brand:"puma", image:"https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/382123/01/sv01/fnd/PNA/fmt/png/RS-X-Hypnotic-Sneakers", name:"RS-X Hypnotic", sex:"unisex")
 
 
