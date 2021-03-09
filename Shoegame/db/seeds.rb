@@ -4,7 +4,7 @@
 
 
 
-ultraboost = Shoe.create(shoes_size: 10, color:"white", price: `${$}200`, brand:"adidas", image:"https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy/a03362c76f354df2a43fac210106fb50_9366/Ultraboost_4.0_DNA_Shoes_White_G55461_01_standard.jpg", name:"ultraboost", sex:"male")
+ultraboost = Shoe.create(shoes_size: 10, color:"white", price: 200, brand:"adidas", image:"https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy/a03362c76f354df2a43fac210106fb50_9366/Ultraboost_4.0_DNA_Shoes_White_G55461_01_standard.jpg", name:"ultraboost", sex:"male")
 yeezyboost = Shoe.create(shoes_size: 10.5, color:"white", price: 200, brand:"adidas", image:"https://cdn-images.farfetch-contents.com/15/16/43/62/15164362_26068068_1000.jpg", name: "yeezyboost", sex:"male")
 stansmiths = Shoe.create(shoes_size: 9, color:"white", price: 65, brand:"adidas", image:"https://assets.adidas.com/images/w_840,h_840,f_auto,q_auto:sensitive,fl_lossy/69721f2e7c934d909168a80e00818569_9366/Stan_Smith_Shoes_White_M20324_01_standard.jpg", name:"Stan Smiths", sex:"unisex")
 nmd_r1 = Shoe.create(shoes_size: 10.5, color:"white", price: 150, brand:"adidas", image:"https://assets.adidas.com/images/w_840,h_840,f_auto,q_auto:sensitive,fl_lossy/189b449050ef49b1aa68a8ba010163e6_9366/NMD_R1_Shoes_White_D96635_01_standard.jpg", name: "NMD_R1", sex:"male")
