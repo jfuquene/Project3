@@ -12,7 +12,11 @@ function renderShoe(shoe){
     let specificShoe = document.createElement('h2')
     specificShoe.innerText = shoe.brand
 
-    allShoes.append(specificShoe)
+    let shoeImg = document.createElement("img")
+    shoeImg.id = "shoe-image"
+    shoeImg.src = shoe.image
+
+    allShoes.append(specificShoe, shoeImg)
 
 
 }
