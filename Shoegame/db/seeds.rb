@@ -32,13 +32,24 @@ json = LikedShoe.create(shoe:ultraboost, user:user1)
 
 #////////////////nike//////////////////
 
-roshes = Shoe.create(shoes_size: 10, color:"white", price: 200, brand:"nike", image:"https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/riur8c6bz6wpakhlgwxl/roshe-one-mens-shoe-MkTmzjJv.jpg")
+roshes = Shoe.create(shoes_size: 10, color:"white", price: 200, brand:"nike", image:"https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/riur8c6bz6wpakhlgwxl/roshe-one-mens-shoe-MkTmzjJv.jpg", sex:"unisex")
 
-kyrie6 = Shoe.create(shoes_size: 10, color:"white", price: 100, brand:"nike", image:"https://media.finishline.com/i/finishline/CK5869_101_P1?$Main_gray$&bg=rgb(237,237,237)")
+kyrie6 = Shoe.create(shoes_size: 10, color:"white", price: 100, brand:"nike", image:"https://media.finishline.com/i/finishline/CK5869_101_P1?$Main_gray$&bg=rgb(237,237,237)", sex:"male")
 
-jordan1 = Shoe.create(shoes_size: 10, color:"white", price: 200, brand:"nike", image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRNyIi0u8DL4OAnJ4RHJy1IDBo5cU3P_OUyA&usqp=CAU")
+jordan1 = Shoe.create(shoes_size: 10, color:"white", price: 200, brand:"nike", image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRNyIi0u8DL4OAnJ4RHJy1IDBo5cU3P_OUyA&usqp=CAU", sex:"unisex")
 
-roshes = Shoe.create(shoes_size: 10, color:"white", price: 200, brand:"nike", image:"")
+airmax = Shoe.create(shoes_size: 10, color:"white", price: 200, brand:"nike", image:"https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/zwxes8uud05rkuei1mpt/air-max-90-mens-shoe-6n3vKB.jpg", sex:"unisex")
 
-roshes = Shoe.create(shoes_size: 10, color:"white", price: 200, brand:"nike", image:"")
+airForce = Shoe.create(shoes_size: 10, color:"white", price: 200, brand:"nike", image:"https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/4f37fca8-6bce-43e7-ad07-f57ae3c13142/air-force-1-07-mens-shoe-5QFp5Z.jpg", sex:"unisex")
 
+#///////////////////COVERSE///////////////////
+
+classic_Low = Shoe.create(shoes_size: 10, color:"white", price: 200, brand:"converse", image:"https://www.converse.com/dw/image/v2/BCZC_PRD/on/demandware.static/-/Sites-cnv-master-catalog/default/dwd4d59ab3/images/a_107/M7652_A_107X1.jpg?sw=964", name:"all Star", sex:"unisex")
+
+classic_high = Shoe.create(shoes_size: 10, color:"white", price: 200, brand:"converse", image:"https://www.converse.com/dw/image/v2/BCZC_PRD/on/demandware.static/-/Sites-cnv-master-catalog/default/dwdd05c312/images/a_107/M9160_A_107X1.jpg?sw=964", name:"all Star High", sex:"unisex")
+
+runStar = Shoe.create(shoes_size: 10, color:"black", price: 200, brand:"converse", image:"https://www.converse.com/dw/image/v2/BCZC_PRD/on/demandware.static/-/Sites-cnv-master-catalog/default/dwea34f93a/images/a_107/166800C_A_107X1.jpg?sw=964", name:"run Star Hike", sex:"unisex")
+
+chuck70_low = Shoe.create(shoes_size: 10, color:"white", price: 200, brand:"converse", image:"https://www.converse.com/dw/image/v2/BCZC_PRD/on/demandware.static/-/Sites-cnv-master-catalog/default/dwa4efce0f/images/a_107/162065C_A_107X1.jpg?sw=964", name:"chuck 70's low", sex:"unisex")
+
+chuck70_high = Shoe.create(shoes_size: 10, color:"black", price: 200, brand:"converse", image:"https://www.converse.com/dw/image/v2/BCZC_PRD/on/demandware.static/-/Sites-cnv-master-catalog/default/dw88ddaf6e/images/a_107/162050C_A_107X1.jpg?sw=964", name:"chuck 70's high", sex:"unisex")
