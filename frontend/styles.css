@@ -1,4 +1,18 @@
+body{
+    text-align: center;
+    
+}
 #shoe-image {
     max-width: 200px;
     max-height: 200px;
+}
+
+.shoe-span{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.cards{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }

@@ -9,10 +9,49 @@
   <body>
     <header>
       <h2>Shoe Game!</h2>
+      <div id='shoe-bar'>
+        <div class="shoe-form-container"></div>
+          <form class="add-toy-form">
+            <h3>Create a shoe!</h3>
+    
+            <input
+              type="text"
+              name="toyName"
+              value=""
+              placeholder="Enter a toy's name..."
+              class="input-text"
+            />
+            <br />
+            <input
+              type="text"
+              name="image"
+              value=""
+              placeholder="Enter a toy's image URL..."
+              class="input-text"
+            />
+            <br />
+            <input
+              type="submit"
+              name="submit"
+              value="Create New Toy"
+              class="submit"
+            />
+          </form>
+        <span class="shoe-span">Adidas</span>
+        <span class="shoe-span">Nike</span>
+        <span class="shoe-span">Puma</span>
+        <span class="shoe-span">Converse</span>
+        <span class="shoe-span">All</span>
+        <span id='renderForm' class="shoe-span">Create New Shoe</span>
+      </div>
+      <p style="text-align:center">
+      <button id="new-btn">Add a new shoe!</button>
+      </p>
+      
     </header>
 
     <main>
-      
+     
     </main>
   </body>
 </html>
