@@ -10,7 +10,10 @@ function renderShoe(shoe){
     let allShoes = document.querySelector('main')
 
     let specificShoe = document.createElement('h2')
-    specificShoe.innerText = shoe.brand
+    specificShoe.innerText = shoe.name
+
+    let sex = document.createElement('h2')
+    sex.innerText = shoe.sex
     
     let shoeImg = document.createElement("img")
     shoeImg.src = shoe.image 
@@ -18,7 +21,7 @@ function renderShoe(shoe){
     
     console.log(shoeImg)
 
-    allShoes.append(specificShoe, shoeImg)
+    allShoes.append(specificShoe, sex, shoeImg)
 
 
 
