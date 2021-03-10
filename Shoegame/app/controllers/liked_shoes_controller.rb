@@ -5,12 +5,12 @@ class LikedShoesController < ApplicationController
   def index
     @liked_shoes = LikedShoe.all
 
-    render json: @liked_shoes, include: [:shoe, :user]
+    render json: LikedShoeSerializer.new(@liked_shoes).to_serialized_json
   end
 
   # GET /liked_shoes/1
   def show
-    render json: { id: @liked_shoe.id, shoe: @liked_shoe.shoe, user: @liked_shoe.user }
+    render json: LikedShoeSerializer.new(@liked_shoe).to_serialized_json
   end
 
   # POST /liked_shoes
