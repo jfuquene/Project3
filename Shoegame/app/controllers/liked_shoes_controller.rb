@@ -5,12 +5,12 @@ class LikedShoesController < ApplicationController
   def index
     @liked_shoes = LikedShoe.all
 
-    render json: @liked_shoes
+    render json: @liked_shoes, include: [:shoe, :user]
   end
 
   # GET /liked_shoes/1
   def show
-    render json: @liked_shoe
+    render json: { id: @liked_shoe.id, shoe: @liked_shoe.shoe, user: @liked_shoe.user }
   end
 
   # POST /liked_shoes

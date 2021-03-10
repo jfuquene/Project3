@@ -3,9 +3,9 @@ class ShoesController < ApplicationController
 
   # GET /shoes
   def index
-    @shoes = Shoe.all
+    shoes = Shoe.all
 
-    render json: @shoes
+    render json: shoes.to_json(except: [:created_at, :updated_at])
   end
 
   # GET /shoes/1
