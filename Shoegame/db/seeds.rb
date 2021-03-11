@@ -13,10 +13,8 @@ rs_curve = Shoe.create(shoes_size: 10, color:"multiple", price: 110, brand:"puma
 rs = Shoe.create(shoes_size: 10, color:"multiple", price: 110, brand:"puma", image:"https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/382123/01/sv01/fnd/PNA/fmt/png/RS-X-Hypnotic-Sneakers", name:"RS-X Hypnotic", sex:"unisex")
 
 
-user1 = User.create(username:"Json")
 
-# json = LikedShoe.create(shoe:, user:user1)
-#ultraboost = Shoe.create(shoes_size: 10, color:"white", price: 200, brand:"adidas", image:"https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy/a03362c76f354df2a43fac210106fb50_9366/Ultraboost_4.0_DNA_Shoes_White_G55461_01_standard.jpg")
+
 
 user1 = User.create(username:"Json")
 
