@@ -10,6 +10,7 @@ class LikedShoeSerializer
            include: {
                shoe: {
                 except: [:updated_at, :created_at]
+
                },
                user: {
                    only: [:username]
