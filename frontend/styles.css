@@ -1,18 +1,367 @@
-body{
+body {
     text-align: center;
-    
 }
+
 #shoe-image {
     max-width: 200px;
     max-height: 200px;
+    cursor: pointer;
 }
-
 .shoe-span{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    cursor: pointer;
+    color:black;
+    font-size: 20px;
+    justify-content: left;
 }
 
 .cards{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
+
+.left {
+    align-content: left;
+}
+
+/* //////////////////// */
+:root {
+    --size: 400px;
+    --blue: #aad5ff;
+    --lb: rgba(0, 0, 0, 0.5);
+  }
+  body {
+    display: grid;
+    justify-items: center;
+    
+    background-color: var(--blue);
+    color: cornsilk;
+    font-family: "Roboto Condensed", sans-serif;
+  }
+  .container {
+    width: var(--size);
+    height: var(--size);
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    grid-template-rows: repeat(2, 50%);
+    justify-items: center;
+    align-items: center;
+    filter: drop-shadow(0px 0px 7px rgba(1, 1, 1, .7));
+  }
+  .productImage {
+    grid-column: 1/span 2;
+    grid-row: 1 /span 2;
+    width: var(--size);
+    height: var(--size);
+    background-size: cover;
+    clip-path: polygon(
+      20% 20%,
+      50% 20%,
+      50% 20%,
+      80% 20%,
+      80% 50%,
+      80% 50%,
+      80% 80%,
+      50% 80%,
+      50% 80%,
+      20% 80%,
+      20% 50%,
+      20% 50%
+    );
+    transition: all 0.7s cubic-bezier(0.895, 0.03, 0.685, 0.22);
+  }
+  .shoeImg {
+    background-image: url(https://source.unsplash.com/l8p1aWZqHvE/1000x1000);
+    background-color: #148bff;
+  }
+  .shirtImg {
+    background-image: url(https://source.unsplash.com/49wtmkUVmFQ/1000x1000);
+    background-color: #aace29;
+  }
+  h4,
+  ul,
+  span {
+    padding: 0;
+    margin: 0;
+  }
+  .size,
+  .color {
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: center;
+    z-index: 1;
+    opacity: 0;
+    transition: all 0.6s cubic-bezier(0.895, 0.03, 0.685, 0.22);
+  }
+  .size ul li,
+  .color ul li {
+    list-style: none;
+    width: 20px;
+    height: 20px;
+    margin: 5px;
+    padding: 5px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  .color {
+    grid-column: 2;
+    grid-row: 2;
+  }
+  .color ul li span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50px;
+    display: inline-block;
+  }
+  .red {
+    background-color: red;
+  }
+  .yellow {
+    background-color: greenyellow;
+  }
+  .blue {
+    background-color: #0070ee;
+  }
+  .price {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: center;
+    z-index: 1;
+    opacity: 0;
+    transition: all 0.6s cubic-bezier(0.895, 0.03, 0.685, 0.22);
+  }
+  .price h4 {
+    margin-bottom: 8px;
+  }
+  .price span {
+    width: 20px;
+    height: 20px;
+    padding: 5px;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  .productName {
+    grid-column: 1;
+    grid-row: 2;
+    align-self: center;
+    justify-self: center;
+    z-index: 1;
+    transition: all 0.7s cubic-bezier(0.895, 0.03, 0.685, 0.22);
+  }
+  
+  .productImage:hover {
+    clip-path: polygon(
+      20% 0%,
+      50% 0%,
+      50% 20%,
+      100% 20%,
+      100% 50%,
+      80% 50%,
+      80% 100%,
+      50% 100%,
+      50% 80%,
+      0% 80%,
+      0% 50%,
+      20% 50%
+    );
+    transform: rotate(-15deg);
+    transition: all 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+  }
+  .productImage:hover ~ * {
+    opacity: 1;
+    transform: rotate(-15deg);
+    transition: all 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+  }
+  .credits{
+      color:white;
+      font-size: 1.2rem;
+      grid-column: 1 / -1 ;
+      justify-self: center;
+      text-align: center;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* :root {
+    --offset: 1rem;
+  }
+  
+  $offset: var(--offset);
+  
+  // $cols - number of column
+  // n - number of items
+  
+  @mixin moveInGrid($cols, $n) {
+    $rows: ceil($n / $cols);
+    .grid {       
+      grid-template-columns: repeat($cols, 1fr);
+      grid-template-rows: repeat($rows, 100% / $rows);
+      li:last-child:after,
+      li:last-child:before {
+        left: 100% * (($cols - $n) % $cols);
+        transform: translate3d(-100% * (($cols - 1) / 2), -100% * (($rows - 1) / 2), 0);
+      }
+      @for $i from 1 through $n - 1 {
+        $x: ($cols - $i) % $cols;
+        $y: $rows - floor(($i - 1) / $cols) - 1;
+          li:nth-child(#{$i}):hover ~ li:last-child:after,
+        li:nth-child(#{$i}):hover ~ li:last-child:before {
+            transform: translate3d(-$x*100%, -$y*100%, 0);   
+          }
+      }
+      li:last-child:hover:after,
+      li:last-child:hover:before {
+        transform: translate3d(-100% * (($cols - $n) % $cols), 0%, 0);  
+      }
+    }
+    
+  }
+  
+  @mixin colors( $n, $colors ) {
+    @for $i from 1 through $n - 1 {
+      li:nth-child(#{$i}):hover ~ li:last-child:after {
+        @if (nth($colors, $i)) {
+          background: nth($colors, $i);
+        }       
+      }
+    }
+    li:last-child:hover:after {
+      background: nth($colors, -1);   
+    }
+  }
+  
+  
+  *, *:before, *:after {
+    box-sizing: border-box;
+  }
+  @media (min-width: 40em) {
+    body {
+      display: grid;
+      grid-template-columns: 1fr 3fr;
+    }
+  }
+  img,
+  a {
+      display: block;
+    height: 100%;
+  }
+  img {
+    max-width: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+  .grid {
+    display: grid;
+    grid-gap: 0;
+    overflow: hidden;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    li {
+      position: relative;
+    }
+    li:hover ~ li:last-child:after,
+    li:last-child:hover:after,
+    li:hover ~ li:last-child:before,
+    li:last-child:hover:before {
+      opacity: 1;
+      transition: 1s ease;
+    }
+    li:last-child:after,
+    li:last-child:before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      pointer-events: none;
+      clip-path:polygon($offset $offset, $offset calc(100% - #{$offset}), calc(100% - #{$offset}) calc(100% - #{$offset}), calc(100% - #{$offset}) $offset);
+      -webkit-clip-path:polygon($offset $offset, $offset calc(100% - #{$offset}), calc(100% - #{$offset}) calc(100% - #{$offset}), calc(100% - #{$offset}) $offset);
+      opacity: 0;
+      transition: opacity 1s, transform 1s 1s, background 1s;
+    }
+   
+    li:last-child:after {
+      mix-blend-mode: multiply;
+      background: #aaafc3;
+    }
+    li:last-child:before {
+      backdrop-filter: grayscale(100%) blur(2px);
+      -webkit-backdrop-filter: grayscale(100%) blur(2px);
+    }
+    //colors (optional)
+    @include colors(8,[#1A237E, #b5a1b7, #aaafc3, #daa384, #A5D6A7, #6c4331, #555, #a88504]);
+  }
+  
+  
+  
+  @include moveInGrid(3, 8);
+  
+  @media (max-width: 60em) {
+    @include moveInGrid(2, 8);
+    :root {
+      --offset: 0;
+    }
+  }
+  
+  .description {
+    font-family: "Unica One", sans-serif;
+    font-size: 1.25rem;
+    position: absolute;
+    display: block;
+    right: 2rem;
+    left: 2rem;
+    text-align: center;
+    top: 50%;
+    width: 60px;
+    margin: auto;
+    color: white;
+    z-index: 100;
+    opacity: 0;
+    transform: translate3d(0, -50%, 0);
+    transition: .3s 0s;
+  }
+  
+  li:hover .description {
+    opacity: 1; 
+    transition: .6s .3s;
+  }
+  
+  header  {
+    padding: 1rem;
+    font-family: "Courier New", monospace, serif;
+    font-size: 1em;
+  }
+  
+  h1 {
+    margin-top: 0;
+  }
+  
+  p {
+    line-height: 1.4;
+  } */
+  
+  

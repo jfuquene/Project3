@@ -3,15 +3,17 @@ const LIKED_SHOES_URL = 'http://localhost:3000/liked_shoes'
 let createShoe = false;
 
 
+
+
 document.addEventListener("DOMContentLoaded", () =>{
     fetch(SHOE_URL)
     .then(res => res.json())
     .then(shoe => shoe.forEach(renderShoe))
 
-    const addBtn = document.querySelector("#new-btn");
-    const shoeFormContainer = document.querySelector(".shoe-form-container")
+    const createNewShoe = document.querySelector("#new-btn");
+    const shoeFormContainer = document.querySelector("#shoe-form-container")
         
-        addBtn.addEventListener("click", () => {
+        createNewShoe.addEventListener("click", () => {
           createShoe = !createShoe;
           if (createShoe) {
             shoeFormContainer.style.display = "block";
@@ -20,15 +22,17 @@ document.addEventListener("DOMContentLoaded", () =>{
           }
         });
 })
+
+
+
 function renderShoe(shoe){
 
     let shoeBar = document.getElementById("shoe-bar")
 
     let shoeSpan = document.querySelector(".shoe-span")
-        shoeSpan.addEventListener('click', (shoe) => {
-            filteredShoes(shoe)
+        shoeSpan.addEventListener('click', (e) => {
+            filteredShoes(e, shoe)
         })
-
 
     ////////////////////////////////////////////////////////
     
@@ -38,18 +42,34 @@ function renderShoe(shoe){
         shoeRow.className = 'card'
 
     let specificShoe = document.createElement('h2')
-    specificShoe.innerText = shoe.name
+        specificShoe.innerText = shoe.name
+        specificShoe.addEventListener('click', () => {
+            renderSpecificShoe(shoe)
+        })
     
     let shoeImg = document.createElement("img")
     shoeImg.src = shoe.image 
     shoeImg.id = "shoe-image"
+    shoeImg.addEventListener('click', () => {
+        renderSpecificShoe(shoe)
+    })
     
-
 
     shoeRow.append(specificShoe, shoeImg)
     allShoes.appendChild(shoeRow)
 }
 
-function filteredShoes(shoe){
+
+
+
+function filteredShoes(shoe, e){
     debugger
+}
+
+
+
+
+function renderSpecificShoe(shoe){
+  
+    
 }
