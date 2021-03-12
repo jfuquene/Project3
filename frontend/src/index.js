@@ -1,19 +1,79 @@
 const SHOE_URL = 'http://localhost:3000/shoes/'
 const LIKED_SHOES_URL = 'http://localhost:3000/liked_shoes/'
-const USER_URL = ''
+const USER_URL = 'http://localhost:3000/users/'
 let createShoe = false;
 
 
 
 
 document.addEventListener("DOMContentLoaded", () =>{
-    fetch(SHOE_URL)
+   Login()
+})
+
+function Login() {
+    let submit = document.createElement("button")
+        submit.innerText = "LOG IN"
+        
+
+    let createLoginForm = document.createElement("form")
+        createLoginForm.id = "createLoginForm"
+
+        createLoginForm.addEventListener('submit', (e) =>{
+
+         createNewLogin(e)
+
+        })
+
+        let inputLoginName = document.createElement("input")
+        inputLoginName.type = "text"
+        inputLoginName.name = "LoginName"
+        inputLoginName.placeholder = "Enter Login name..."
+
+    createLoginForm.append(inputLoginName, submit)
+    document.querySelector("main").append(createLoginForm)
+}
+
+async function createNewLogin(e){
+    e.preventDefault()
+
+    let newUser = {
+        username: e.target.LoginName.value
+    }
+
+    reqObj = {
+        headers: {"Content-Type": "application/json"},
+        method: "POST",
+        body: JSON.stringify(newUser)
+    } 
+
+    let response = await fetch(USER_URL, reqObj)
+    let translate = await response.json()
+
+
+    welcomePage(translate)
+}
+
+function welcomePage(t){
+    let welcomeGreeting = document.createElement("h1")
+    welcomeGreeting.innerText = `WELCOME `
+    let name =`${t.username} `
+    name.className = "namee"
+    welcomeGreeting.innerText += name
+    welcomeGreeting.innerText += "Click HERE to view Shoes"
+    welcomeGreeting.addEventListener('click', triggerDatabase)
+
+    document.querySelector('main').append(welcomeGreeting)
+}
+
+function triggerDatabase(){
+    document.querySelector("main").innerHTML = ""
+ fetch(SHOE_URL)
     .then(res => res.json())
     .then(shoes => shoes.forEach(renderShoes))
     
          renderForm() 
         renderSpan()
-})
+}
 
 function renderForm() {
     
@@ -98,7 +158,16 @@ function renderSpan() {
     let allSpan = document.createElement("span")
         allSpan.innerText = "  ALL  "
         allSpan.className = "shoe-span"
-        // allSpan.addEventListener('click', renderShoes())
+        allSpan.addEventListener('click', () =>{
+            let ul = document.querySelector("main")
+            ul.innerHTML = ""
+
+            fetch(SHOE_URL)
+            .then(res => res.json())
+            .then(shoes => shoes.forEach(renderShoes))
+            
+                 
+        })
 
     let createSpan = document.createElement("span") 
         createSpan.innerText = "  CREATE A SHOE  "
@@ -110,7 +179,7 @@ function renderSpan() {
         likedShoes.addEventListener("click", renderLikedShoes)
     
 
-        div.append(allSpan, adidasSpan, nikeSpan, pumaSpan, converseSpan, likedShoes, createSpan)
+        div.append(allSpan, adidasSpan, nikeSpan, pumaSpan, converseSpan, likedShoes)
         document.getElementById('shoe-bar').append(div)
 
 }
@@ -157,7 +226,7 @@ function Converse(converse){
         shoeSize.innerText = `Size: ${converse.shoes_size}`
 
     let shoePrice = document.createElement("li")
-        shoePrice.innerText = `Price: ${converse.price}` 
+        shoePrice.innerText = `Price: $${converse.price}` 
 
     let shoeColor = document.createElement("li")
         shoeColor.innerText = `Color: ${converse.color}`
@@ -165,7 +234,7 @@ function Converse(converse){
     let shoeSex = document.createElement("li")
         shoeSex.innerText = `Gender: ${converse.sex}`
 
-    shoeRow.append(specificShoe, shoeImg, shoeSize, shoePrice, shoeColor)
+    shoeRow.append(specificShoe, shoeImg, shoeSize, shoePrice, shoeColor, shoeSex)
     allShoes.appendChild(shoeRow)
 }
 
@@ -179,6 +248,7 @@ function renderNike(e){
     .then(nike => nike.forEach(renderNikeShoes))
 
 }
+
 function renderNikeShoes(nike){
  
     let ul = document.querySelector("main")
@@ -211,7 +281,7 @@ function Nike(nike){
         shoeSize.innerText = `Size: ${nike.shoes_size}`
 
     let shoePrice = document.createElement("li")
-        shoePrice.innerText = `Price: ${nike.price}` 
+        shoePrice.innerText = `Price: $${nike.price}` 
 
     let shoeColor = document.createElement("li")
         shoeColor.innerText = `Color: ${nike.color}`
@@ -219,7 +289,7 @@ function Nike(nike){
     let shoeSex = document.createElement("li")
         shoeSex.innerText = `Gender: ${nike.sex}`
 
-    shoeRow.append(specificShoe, shoeImg, shoeSize, shoePrice, shoeColor)
+    shoeRow.append(specificShoe, shoeImg, shoeSize, shoePrice, shoeColor, shoeSex)
     allShoes.appendChild(shoeRow)
 }
 
@@ -244,6 +314,7 @@ function renderPumas(e){
     .then(res => res.json())
     .then(puma => puma.forEach(renderPumaShoes))
 }
+
 function renderPumaShoes(puma){
    
     let ul = document.querySelector("main")
@@ -274,7 +345,7 @@ function pumas(puma){
         shoeSize.innerText = `Size: ${puma.shoes_size}`
 
     let shoePrice = document.createElement("li")
-        shoePrice.innerText = `Price: ${puma.price}` 
+        shoePrice.innerText = `Price: $${puma.price}` 
 
     let shoeColor = document.createElement("li")
         shoeColor.innerText = `Color: ${puma.color}`
@@ -282,12 +353,9 @@ function pumas(puma){
     let shoeSex = document.createElement("li")
         shoeSex.innerText = `Gender: ${puma.sex}`
 
-    shoeRow.append(specificShoe, shoeImg, shoeSize, shoePrice, shoeColor)
+    shoeRow.append(specificShoe, shoeImg, shoeSize, shoePrice, shoeColor, shoeSex)
     allShoes.appendChild(shoeRow)
 }
-
-
-
 
 function renderLikedShoes(e){
     let ul = document.querySelector("main")
@@ -332,7 +400,7 @@ function renderLikeShoe(liSh){
         shoeSize.innerText = `Size: ${shoe.shoes_size}`
 
     let shoePrice = document.createElement("li")
-        shoePrice.innerText = `Price: ${shoe.price}` 
+        shoePrice.innerText = `Price: $${shoe.price}` 
 
     let shoeColor = document.createElement("li")
         shoeColor.innerText = `Color: ${shoe.color}`
@@ -379,7 +447,7 @@ function adidas(ad){
         shoeSize.innerText = `Size: ${ad.shoes_size}`
 
     let shoePrice = document.createElement("li")
-        shoePrice.innerText = `Price: ${ad.price}` 
+        shoePrice.innerText = `Price: $${ad.price}` 
 
     let shoeColor = document.createElement("li")
         shoeColor.innerText = `Color: ${ad.color}`
@@ -387,7 +455,7 @@ function adidas(ad){
     let shoeSex = document.createElement("li")
         shoeSex.innerText = `Gender: ${ad.sex}`
 
-    shoeRow.append(specificShoe, shoeImg, shoeSize, shoePrice, shoeColor)
+    shoeRow.append(specificShoe, shoeImg, shoeSize, shoePrice, shoeColor, shoeSex)
     allShoes.appendChild(shoeRow)
 }
 
@@ -395,7 +463,7 @@ function renderShoes(shoe){
     // let shoe = shoes.shoe
     // let user = shoes.user
     
-
+    
     let shoeBar = document.getElementById("shoe-bar")
         
 
@@ -423,7 +491,7 @@ function renderShoes(shoe){
         shoeSize.innerText = `Size: ${shoe.shoes_size}`
 
     let shoePrice = document.createElement("li")
-        shoePrice.innerText = `Price: ${shoe.price}` 
+        shoePrice.innerText = `Price: $${shoe.price}` 
 
     let shoeColor = document.createElement("li")
         shoeColor.innerText = `Color: ${shoe.color}`
@@ -514,52 +582,3 @@ async function createNewShoe(e){
     renderShoes(translate)
 
 }
-
-
-// function filteredShoes(shoe, e){
-// }
-
-
-
-
-// function renderSpecificShoe(shoe){
-// //   console.log(shoe)
-
-//     let div = document.querySelector('main')
-
-//     let specificShoe = document.querySelector('h2')
-//         specificShoe.innerText = shoe.name
-
-//     let shoeImg = document.querySelector("img")
-//         shoeImg.src = shoe.image 
-
-//     let shoeSize = document.createElement("li")
-//         shoeSize.innerText = shoe.size 
-
-//     let shoePrice = document.createElement("li")
-//         shoePrice.innerText = shoe.price 
-
-//     let shoeColor = document.createElement("li")
-//         shoeColor.innerText = shoe.shoeColor
-        
-//     div.append(specificShoe, shoeImg, shoeSize, shoePrice, shoeColor)
-// }
-
-//////HIDDEN FORM FEATURE//////
-    // const createNewShoe = document.querySelector("#new-btn")
-    
-    // const shoeformContainer = document.querySelector("#shoe-form-container")
-    
-
-    //    createNewShoe.addEventListener("click", () => {
-        
-    //     createShoe ? false : true
-          
-    //       if (createShoe) {
-    //         shoeFormContainer.style.display = "block";
-    //         renderForm()
-    //     } else {
-    //         renderForm()
-    //         shoeFormContainer.style.display = "none";
-    //     }
-    // });
