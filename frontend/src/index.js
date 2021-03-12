@@ -15,7 +15,10 @@ document.addEventListener("DOMContentLoaded", () =>{
         renderSpan()
 })
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> f15fd6ae3a6f33f56368867bbf02b7429242cbf9
 function renderForm() {
     
     let submit = document.createElement("button")
@@ -72,7 +75,6 @@ function renderForm() {
 
 }
 
-
 function renderSpan() {
 
     let div = document.createElement("div")
@@ -85,6 +87,7 @@ function renderSpan() {
     let nikeSpan = document.createElement("span")
         nikeSpan.innerText = "  NIKE  "
         nikeSpan.className = "shoe-span"
+        nikeSpan.addEventListener("click", renderNike)
      
     let pumaSpan = document.createElement("span")
         pumaSpan.innerText = "  PUMA  "    
@@ -94,6 +97,7 @@ function renderSpan() {
     let converseSpan = document.createElement("span")
         converseSpan.innerText = "  CONVERSE  "
         converseSpan.className = "shoe-span"
+        converseSpan.addEventListener("click", renderConverse)
 
     let allSpan = document.createElement("span")
         allSpan.innerText = "  ALL  "
@@ -115,6 +119,115 @@ function renderSpan() {
 
 }
 
+function renderConverse(e){
+    let ul = document.querySelector("main")
+    ul.innerHTML = ""
+    
+
+    fetch(SHOE_URL)
+    .then(res => res.json())
+    .then(converse => converse.forEach(renderConverseShoes))
+
+}
+function renderConverseShoes(converse){
+ 
+    let ul = document.querySelector("main")
+    if (converse.brand == "converse"){
+        let list = document.createElement("div")
+ 
+       list.innerHTML = Converse(converse)
+       
+    }
+    
+}
+
+function Converse(converse){
+    // debugger
+    let allShoes = document.querySelector('main')
+        allShoes.className = 'cards'
+    let shoeRow = document.createElement('div')
+        // shoeRow.className = 'card'
+
+    let specificShoe = document.createElement('h2')
+        specificShoe.innerText = converse.name
+        
+    
+    let shoeImg = document.createElement("img")
+    shoeImg.src = converse.image 
+    shoeImg.id = "shoe-image"
+    
+
+    let shoeSize = document.createElement("li")
+        shoeSize.innerText = `Size: ${converse.shoes_size}`
+
+    let shoePrice = document.createElement("li")
+        shoePrice.innerText = `Price: ${converse.price}` 
+
+    let shoeColor = document.createElement("li")
+        shoeColor.innerText = `Color: ${converse.color}`
+
+    let shoeSex = document.createElement("li")
+        shoeSex.innerText = `Gender: ${converse.sex}`
+
+    shoeRow.append(specificShoe, shoeImg, shoeSize, shoePrice, shoeColor)
+    allShoes.appendChild(shoeRow)
+}
+
+function renderNike(e){
+    let ul = document.querySelector("main")
+    ul.innerHTML = ""
+    
+
+    fetch(SHOE_URL)
+    .then(res => res.json())
+    .then(nike => nike.forEach(renderNikeShoes))
+
+}
+function renderNikeShoes(nike){
+ 
+    let ul = document.querySelector("main")
+    if (nike.brand == "nike"){
+        let list = document.createElement("div")
+ 
+       list.innerHTML = Nike(nike)
+       
+    }
+    
+}
+
+function Nike(nike){
+    // debugger
+    let allShoes = document.querySelector('main')
+        allShoes.className = 'cards'
+    let shoeRow = document.createElement('div')
+        // shoeRow.className = 'card'
+
+    let specificShoe = document.createElement('h2')
+        specificShoe.innerText = nike.name
+        
+    
+    let shoeImg = document.createElement("img")
+    shoeImg.src = nike.image 
+    shoeImg.id = "shoe-image"
+    
+
+    let shoeSize = document.createElement("li")
+        shoeSize.innerText = `Size: ${nike.shoes_size}`
+
+    let shoePrice = document.createElement("li")
+        shoePrice.innerText = `Price: ${nike.price}` 
+
+    let shoeColor = document.createElement("li")
+        shoeColor.innerText = `Color: ${nike.color}`
+
+    let shoeSex = document.createElement("li")
+        shoeSex.innerText = `Gender: ${nike.sex}`
+
+    shoeRow.append(specificShoe, shoeImg, shoeSize, shoePrice, shoeColor)
+    allShoes.appendChild(shoeRow)
+}
+
+////////////////////
 function renderAdidas(e){
     let ul = document.querySelector("main")
     ul.innerHTML = ""
@@ -240,18 +353,18 @@ function renderLikeShoe(liSh){
 }
 
 function renderAdidasShoes(ad){
-    console.log(ad)
+ 
     let ul = document.querySelector("main")
     if (ad.brand == "adidas"){
         let list = document.createElement("div")
  
        list.innerHTML = adidas(ad)
        
-       
-
+    }
 }
 
 function adidas(ad){
+    // debugger
     let allShoes = document.querySelector('main')
         allShoes.className = 'cards'
     let shoeRow = document.createElement('div')
