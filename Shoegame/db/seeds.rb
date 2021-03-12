@@ -17,8 +17,10 @@ rs = Shoe.create(shoes_size: 10, color:"multiple", price: 110, brand:"puma", ima
 
 
 user1 = User.create(username:"Json")
+user10 = User.create(username:"John Cena")
 
 json = LikedShoe.create(shoe:ultraboost, user:user1)
+
 #///////////////////COVERSE///////////////////
 
 classic_Low = Shoe.create(shoes_size: 10, color:"white", price: 200, brand:"converse", image:"https://www.converse.com/dw/image/v2/BCZC_PRD/on/demandware.static/-/Sites-cnv-master-catalog/default/dwd4d59ab3/images/a_107/M7652_A_107X1.jpg?sw=964", name:"All Star (Low-top)", sex:"unisex")
@@ -55,3 +57,5 @@ likedshoe4 = LikedShoe.create(shoe:jordan1, user:user1)
 likedshoe5 = LikedShoe.create(shoe:runStar, user:user1)
 likedshoe6 = LikedShoe.create(shoe:classic_Low, user:user1)
 likedshoe7 = LikedShoe.create(shoe:rs, user:user1)
+
+johnCena = LikedShoe.create(shoe:yeezyboost, user:user10)
