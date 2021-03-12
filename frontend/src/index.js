@@ -15,18 +15,6 @@ document.addEventListener("DOMContentLoaded", () =>{
     // const shoeformContainer = document.querySelector("#shoe-form-container")
     renderForm()
 
-    //    createNewShoe.addEventListener("click", () => {
-        
-    //     createShoe ? false : true
-          
-    //       if (createShoe) {
-    //         shoeFormContainer.style.display = "block";
-    //         renderForm()
-    //     } else {
-    //         renderForm()
-    //         shoeFormContainer.style.display = "none";
-    //     }
-    // });
 })
 
 function renderForm() {
@@ -243,3 +231,16 @@ async function createNewShoe(e){
         
 //     div.append(specificShoe, shoeImg, shoeSize, shoePrice, shoeColor)
 // }
+//    createNewShoe.addEventListener("click", () => {
+        
+    //     createShoe ? false : true
+          
+    //       if (createShoe) {
+    //         shoeFormContainer.style.display = "block";
+    //         renderForm()
+    //     } else {
+    //         renderForm()
+    //         shoeFormContainer.style.display = "none";
+    //     }
+    // });
+})
