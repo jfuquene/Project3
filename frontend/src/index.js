@@ -8,11 +8,11 @@ let createShoe = false;
 document.addEventListener("DOMContentLoaded", () =>{
     fetch(SHOE_URL)
     .then(res => res.json())
-    .then(shoe => shoe.forEach(renderShoe))
+    .then(shoe => shoe.forEach(renderShoes))
 
-    const createNewShoe = document.querySelector("#new-btn")
+    // const createNewShoe = document.querySelector("#new-btn")
     
-    const shoeFormContainer = document.querySelector("#shoe-form-container")
+    // const shoeformContainer = document.querySelector("#shoe-form-container")
     renderForm()
 
     //    createNewShoe.addEventListener("click", () => {
@@ -34,8 +34,16 @@ function renderForm() {
     
     let submit = document.createElement("button")
         submit.innerText = "CREATE"
+        
 
-    let form = document.createElement("form")
+    let createShoeForm = document.createElement("form")
+        createShoeForm.id = "createShoeForm"
+
+        createShoeForm.addEventListener('submit', (e) =>{
+
+         createNewShoe(e)
+
+        })
         
     let inputShoeName = document.createElement("input")
         inputShoeName.type = "text"
@@ -58,18 +66,28 @@ function renderForm() {
         inputShoeImage.name = "shoeImg"
         inputShoeImage.placeholder = "Enter shoe URL..."
 
+    let inputShoeBrand = document.createElement("input")
+        inputShoeBrand.type = "text"
+        inputShoeBrand.name = "shoeBrand"
+        inputShoeBrand.placeholder = "Enter shoe brand..."
+
     let inputShoeSex = document.createElement("input")
         inputShoeSex.type = "text"
         inputShoeSex.name = "shoeSex"
         inputShoeSex.placeholder = "Enter shoe gender for size..."
 
-    form.append(inputShoeName, inputShoeColor, inputShoeSize, inputShoeImage, inputShoeSex, submit)
-    document.getElementById("shoe-form-container").appendChild(form)
+    let inputShoePrice = document.createElement("input")
+        inputShoePrice.type = "text"
+        inputShoePrice.name = "shoePrice"
+        inputShoePrice.placeholder = "Enter shoe price..."
+
+    createShoeForm.append(inputShoeName, inputShoeColor, inputShoeSize, inputShoeImage, inputShoeBrand, inputShoeSex, inputShoePrice, submit)
+    document.getElementById("shoe-form-container").appendChild(createShoeForm)
 
 }
 
 
-function renderShoe(shoe){
+function renderShoes(shoe){
 
     let shoeBar = document.getElementById("shoe-bar")
 
@@ -103,7 +121,33 @@ function renderShoe(shoe){
     allShoes.appendChild(shoeRow)
 }
 
+async function createNewShoe(e){
+    e.preventDefault()
+    
+    newShoe = {
+        shoes_size: e.target.shoeSize.value,
+        color: e.target.shoeColor.value,
+        price: e.target.shoePrice.value,
+        brand: e.target.shoeBrand.value,
+        image: e.target.shoeImg.value,
+        name: e.target.shoeName.value,
+        sex: e.target.shoeSex.value
+    }
+    
+    
+    let reqObj = {
+        headers: {"Content-Type": "application/json"},
+        method: "POST",
+        body: JSON.stringify(newShoe)
+    }
 
+    let response = await fetch(SHOE_URL, reqObj)
+    let translate = await response.json()
+
+    // document.getElementById("createShoeForm").reset()
+    renderShoes(translate)
+
+}
 
 
 function filteredShoes(shoe, e){
