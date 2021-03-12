@@ -1,19 +1,75 @@
 const SHOE_URL = 'http://localhost:3000/shoes/'
 const LIKED_SHOES_URL = 'http://localhost:3000/liked_shoes/'
-const USER_URL = ''
+const USER_URL = 'http://localhost:3000/users/'
 let createShoe = false;
 
 
 
 
 document.addEventListener("DOMContentLoaded", () =>{
-    fetch(SHOE_URL)
+   Login()
+})
+
+function Login() {
+    let submit = document.createElement("button")
+        submit.innerText = "LOG IN"
+        
+
+    let createLoginForm = document.createElement("form")
+        createLoginForm.id = "createLoginForm"
+
+        createLoginForm.addEventListener('submit', (e) =>{
+
+         createNewLogin(e)
+
+        })
+
+        let inputLoginName = document.createElement("input")
+        inputLoginName.type = "text"
+        inputLoginName.name = "LoginName"
+        inputLoginName.placeholder = "Enter Login name..."
+
+    createLoginForm.append(inputLoginName, submit)
+    document.querySelector("main").append(createLoginForm)
+}
+
+async function createNewLogin(e){
+    e.preventDefault()
+
+    let newUser = {
+        username: e.target.LoginName.value
+    }
+
+    reqObj = {
+        headers: {"Content-Type": "application/json"},
+        method: "POST",
+        body: JSON.stringify(newUser)
+    } 
+
+    let response = await fetch(USER_URL, reqObj)
+    let translate = await response.json()
+
+
+    welcomePage(translate)
+}
+
+function welcomePage(t){
+    let welcomeGreeting = document.createElement("h1")
+    welcomeGreeting.innerText = `WELCOME ${t.username} Click HERE to Shoes`
+    welcomeGreeting.addEventListener('click', triggerDatabase)
+
+    document.querySelector('main').append(welcomeGreeting)
+}
+
+function triggerDatabase(){
+    document.querySelector("main").innerHTML = ""
+ fetch(SHOE_URL)
     .then(res => res.json())
     .then(shoes => shoes.forEach(renderShoes))
     
          renderForm() 
         renderSpan()
-})
+}
 
 
 function renderForm() {
@@ -404,7 +460,7 @@ function renderShoes(shoe){
     // let shoe = shoes.shoe
     // let user = shoes.user
     
-
+    
     let shoeBar = document.getElementById("shoe-bar")
         
 
