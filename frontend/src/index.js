@@ -55,7 +55,11 @@ async function createNewLogin(e){
 
 function welcomePage(t){
     let welcomeGreeting = document.createElement("h1")
-    welcomeGreeting.innerText = `WELCOME ${t.username} Click HERE to Shoes`
+    welcomeGreeting.innerText = `WELCOME `
+    let name =`${t.username} `
+    name.className = "namee"
+    welcomeGreeting.innerText += name
+    welcomeGreeting.innerText += "Click HERE to view Shoes"
     welcomeGreeting.addEventListener('click', triggerDatabase)
 
     document.querySelector('main').append(welcomeGreeting)
@@ -223,7 +227,7 @@ function Converse(converse){
         shoeSize.innerText = `Size: ${converse.shoes_size}`
 
     let shoePrice = document.createElement("li")
-        shoePrice.innerText = `Price: ${converse.price}` 
+        shoePrice.innerText = `Price: $${converse.price}` 
 
     let shoeColor = document.createElement("li")
         shoeColor.innerText = `Color: ${converse.color}`
@@ -231,7 +235,7 @@ function Converse(converse){
     let shoeSex = document.createElement("li")
         shoeSex.innerText = `Gender: ${converse.sex}`
 
-    shoeRow.append(specificShoe, shoeImg, shoeSize, shoePrice, shoeColor)
+    shoeRow.append(specificShoe, shoeImg, shoeSize, shoePrice, shoeColor, shoeSex)
     allShoes.appendChild(shoeRow)
 }
 
@@ -278,7 +282,7 @@ function Nike(nike){
         shoeSize.innerText = `Size: ${nike.shoes_size}`
 
     let shoePrice = document.createElement("li")
-        shoePrice.innerText = `Price: ${nike.price}` 
+        shoePrice.innerText = `Price: $${nike.price}` 
 
     let shoeColor = document.createElement("li")
         shoeColor.innerText = `Color: ${nike.color}`
@@ -286,7 +290,7 @@ function Nike(nike){
     let shoeSex = document.createElement("li")
         shoeSex.innerText = `Gender: ${nike.sex}`
 
-    shoeRow.append(specificShoe, shoeImg, shoeSize, shoePrice, shoeColor)
+    shoeRow.append(specificShoe, shoeImg, shoeSize, shoePrice, shoeColor, shoeSex)
     allShoes.appendChild(shoeRow)
 }
 
@@ -342,7 +346,7 @@ function pumas(puma){
         shoeSize.innerText = `Size: ${puma.shoes_size}`
 
     let shoePrice = document.createElement("li")
-        shoePrice.innerText = `Price: ${puma.price}` 
+        shoePrice.innerText = `Price: $${puma.price}` 
 
     let shoeColor = document.createElement("li")
         shoeColor.innerText = `Color: ${puma.color}`
@@ -350,7 +354,7 @@ function pumas(puma){
     let shoeSex = document.createElement("li")
         shoeSex.innerText = `Gender: ${puma.sex}`
 
-    shoeRow.append(specificShoe, shoeImg, shoeSize, shoePrice, shoeColor)
+    shoeRow.append(specificShoe, shoeImg, shoeSize, shoePrice, shoeColor, shoeSex)
     allShoes.appendChild(shoeRow)
 }
 
@@ -397,7 +401,7 @@ function renderLikeShoe(liSh){
         shoeSize.innerText = `Size: ${shoe.shoes_size}`
 
     let shoePrice = document.createElement("li")
-        shoePrice.innerText = `Price: ${shoe.price}` 
+        shoePrice.innerText = `Price: $${shoe.price}` 
 
     let shoeColor = document.createElement("li")
         shoeColor.innerText = `Color: ${shoe.color}`
@@ -444,7 +448,7 @@ function adidas(ad){
         shoeSize.innerText = `Size: ${ad.shoes_size}`
 
     let shoePrice = document.createElement("li")
-        shoePrice.innerText = `Price: ${ad.price}` 
+        shoePrice.innerText = `Price: $${ad.price}` 
 
     let shoeColor = document.createElement("li")
         shoeColor.innerText = `Color: ${ad.color}`
@@ -452,7 +456,7 @@ function adidas(ad){
     let shoeSex = document.createElement("li")
         shoeSex.innerText = `Gender: ${ad.sex}`
 
-    shoeRow.append(specificShoe, shoeImg, shoeSize, shoePrice, shoeColor)
+    shoeRow.append(specificShoe, shoeImg, shoeSize, shoePrice, shoeColor, shoeSex)
     allShoes.appendChild(shoeRow)
 }
 
@@ -488,7 +492,7 @@ function renderShoes(shoe){
         shoeSize.innerText = `Size: ${shoe.shoes_size}`
 
     let shoePrice = document.createElement("li")
-        shoePrice.innerText = `Price: ${shoe.price}` 
+        shoePrice.innerText = `Price: $${shoe.price}` 
 
     let shoeColor = document.createElement("li")
         shoeColor.innerText = `Color: ${shoe.color}`

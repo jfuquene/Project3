@@ -1,6 +1,13 @@
 #createShoeForm{
   padding-bottom: 30px;
 }
+.namee{
+  color: red !important;
+}
+
+h1{
+  cursor: pointer;
+}
 
 body {
     text-align: center;
