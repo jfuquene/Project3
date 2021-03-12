@@ -247,7 +247,7 @@ function renderAdidasShoes(ad){
  
        list.innerHTML = adidas(ad)
        
-    }
+       
 
 }
 
