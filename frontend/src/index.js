@@ -111,7 +111,7 @@ function renderSpan() {
         likedShoes.addEventListener("click", renderLikedShoes)
     
 
-        div.append(allSpan, adidasSpan, nikeSpan, pumaSpan, converseSpan, likedShoes, createSpan)
+        div.append(allSpan, adidasSpan, nikeSpan, pumaSpan, converseSpan, likedShoes)
         document.getElementById('shoe-bar').append(div)
 
 }
@@ -286,9 +286,6 @@ function pumas(puma){
     shoeRow.append(specificShoe, shoeImg, shoeSize, shoePrice, shoeColor)
     allShoes.appendChild(shoeRow)
 }
-
-
-
 
 function renderLikedShoes(e){
     let ul = document.querySelector("main")
@@ -516,12 +513,8 @@ async function createNewShoe(e){
 
 }
 
-
 // function filteredShoes(shoe, e){
 // }
-
-
-
 
 // function renderSpecificShoe(shoe){
 // //   console.log(shoe)
