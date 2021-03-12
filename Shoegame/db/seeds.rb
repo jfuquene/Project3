@@ -17,8 +17,11 @@ rs = Shoe.create(shoes_size: 10, color:"multiple", price: 110, brand:"puma", ima
 
 
 user1 = User.create(username:"Json")
+user2 = User.create(username:"John")
 
 json = LikedShoe.create(shoe:ultraboost, user:user1)
+john = LikedShoe.create(shoe: pumaRS, user:user2)
+
 #///////////////////COVERSE///////////////////
 
 classic_Low = Shoe.create(shoes_size: 10, color:"white", price: 200, brand:"converse", image:"https://www.converse.com/dw/image/v2/BCZC_PRD/on/demandware.static/-/Sites-cnv-master-catalog/default/dwd4d59ab3/images/a_107/M7652_A_107X1.jpg?sw=964", name:"All Star (Low-top)", sex:"unisex")
