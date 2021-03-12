@@ -99,7 +99,16 @@ function renderSpan() {
     let allSpan = document.createElement("span")
         allSpan.innerText = "  ALL  "
         allSpan.className = "shoe-span"
-        // allSpan.addEventListener('click', renderShoes())
+        allSpan.addEventListener('click', () =>{
+            let ul = document.querySelector("main")
+            ul.innerHTML = ""
+
+            fetch(SHOE_URL)
+            .then(res => res.json())
+            .then(shoes => shoes.forEach(renderShoes))
+            
+                 
+        })
 
     let createSpan = document.createElement("span") 
         createSpan.innerText = "  CREATE A SHOE  "
@@ -180,6 +189,7 @@ function renderNike(e){
     .then(nike => nike.forEach(renderNikeShoes))
 
 }
+
 function renderNikeShoes(nike){
  
     let ul = document.querySelector("main")
@@ -245,6 +255,7 @@ function renderPumas(e){
     .then(res => res.json())
     .then(puma => puma.forEach(renderPumaShoes))
 }
+
 function renderPumaShoes(puma){
    
     let ul = document.querySelector("main")
@@ -512,48 +523,3 @@ async function createNewShoe(e){
     renderShoes(translate)
 
 }
-
-// function filteredShoes(shoe, e){
-// }
-
-// function renderSpecificShoe(shoe){
-// //   console.log(shoe)
-
-//     let div = document.querySelector('main')
-
-//     let specificShoe = document.querySelector('h2')
-//         specificShoe.innerText = shoe.name
-
-//     let shoeImg = document.querySelector("img")
-//         shoeImg.src = shoe.image 
-
-//     let shoeSize = document.createElement("li")
-//         shoeSize.innerText = shoe.size 
-
-//     let shoePrice = document.createElement("li")
-//         shoePrice.innerText = shoe.price 
-
-//     let shoeColor = document.createElement("li")
-//         shoeColor.innerText = shoe.shoeColor
-        
-//     div.append(specificShoe, shoeImg, shoeSize, shoePrice, shoeColor)
-// }
-
-//////HIDDEN FORM FEATURE//////
-    // const createNewShoe = document.querySelector("#new-btn")
-    
-    // const shoeformContainer = document.querySelector("#shoe-form-container")
-    
-
-    //    createNewShoe.addEventListener("click", () => {
-        
-    //     createShoe ? false : true
-          
-    //       if (createShoe) {
-    //         shoeFormContainer.style.display = "block";
-    //         renderForm()
-    //     } else {
-    //         renderForm()
-    //         shoeFormContainer.style.display = "none";
-    //     }
-    // });
