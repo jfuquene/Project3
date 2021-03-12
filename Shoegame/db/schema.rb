@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_09_213537) do
+ActiveRecord::Schema.define(version: 2021_03_12_041346) do
 
   create_table "liked_shoes", force: :cascade do |t|
     t.integer "shoe_id", null: false
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 2021_03_09_213537) do
     t.string "image"
     t.string "name"
     t.string "sex"
+    t.boolean "like"
   end
 
   create_table "users", force: :cascade do |t|
