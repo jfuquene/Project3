@@ -556,6 +556,7 @@ function toggleLike(event){
 }
 
 async function createNewShoe(e){
+    
     e.preventDefault()
     
     newShoe = {
@@ -577,8 +578,9 @@ async function createNewShoe(e){
 
     let response = await fetch(SHOE_URL, reqObj)
     let translate = await response.json()
-
-    // document.getElementById("createShoeForm").reset()
+    
+    
+    document.getElementById("createShoeForm").reset()
     renderShoes(translate)
 
 }
