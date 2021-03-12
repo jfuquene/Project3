@@ -15,10 +15,6 @@ document.addEventListener("DOMContentLoaded", () =>{
         renderSpan()
 })
 
-<<<<<<< HEAD
-
-=======
->>>>>>> f15fd6ae3a6f33f56368867bbf02b7429242cbf9
 function renderForm() {
     
     let submit = document.createElement("button")
