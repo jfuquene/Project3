@@ -197,7 +197,7 @@ function renderConverse(e){
 function renderConverseShoes(converse){
  
     let ul = document.querySelector("main")
-    if (converse.brand == "converse"){
+    if (converse.brand.toUpperCase() == "CONVERSE"){
         let list = document.createElement("div")
  
        list.innerHTML = Converse(converse)
@@ -252,7 +252,7 @@ function renderNike(e){
 function renderNikeShoes(nike){
  
     let ul = document.querySelector("main")
-    if (nike.brand == "nike"){
+    if (nike.brand.toUpperCase() == "NIKE"){
         let list = document.createElement("div")
  
        list.innerHTML = Nike(nike)
@@ -318,7 +318,7 @@ function renderPumas(e){
 function renderPumaShoes(puma){
    
     let ul = document.querySelector("main")
-    if (puma.brand == "puma"){
+    if (puma.brand.toUpperCase() == "PUMA"){
         let list = document.createElement("div")
  
        list.innerHTML = pumas(puma)
@@ -419,7 +419,7 @@ function renderLikeShoe(liSh){
 function renderAdidasShoes(ad){
  
     let ul = document.querySelector("main")
-    if (ad.brand == "adidas"){
+    if (ad.brand.toUpperCase() == "ADIDAS"){
         let list = document.createElement("div")
  
        list.innerHTML = adidas(ad)
