@@ -1,4 +1,4 @@
-Project using vanilla JS. 
+Project using vanilla Ruby on rails in the back end and vanilla JS in the front with CSS for styling. 
 
 A User can log in or out of the application. 
 
